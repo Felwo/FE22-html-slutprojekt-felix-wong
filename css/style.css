@@ -1,42 +1,102 @@
-:root{
-    --clr-primary-: #1E1E1E;
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Gotu&family=Lato&family=Magra:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP&display=swap');
+
+:root {
+    --clr-primary-: #1A1E34;
     --clr-secondary-: #F4F4D0;
 
+    --fs-logo-: 'Fredericka the Great';
+    --fs-nav-: 'Gotu', sans-serif;
+    --fs-heading-: 'Magra', sans-serif;
+    --fs-para-: 'Lato', sans-serif;
 }
 
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: border-box;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     outline: 0;
     border: 0;
 }
 
-body{
+#logo {
+    font-family: var(--fs-logo-);
+    font-size: clamp(3rem, 7.5vw, 6rem);
+}
+
+body {
     color: var(--clr-primary-);
     background-color: var(--clr-secondary-);
 }
 
-footer{
+h1,
+h2,
+h3
+{
+    font-family: var(--fs-heading-);
+}
+
+h1{
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.5rem;
+}
+h3{
+    font-size: 2rem;
+}
+
+p{
+    font-family: var(--fs-para-);
+    font-size: 1.5rem;
+}
+
+footer {
     background-color: var(--clr-primary-);
     color: var(--clr-secondary-);
 }
 
-ul, li{
+footer section {
+    margin: 0rem 3rem;
+    padding: 2rem 0rem;
+}
+
+.icons {
+    display: flex;
+    gap: 2rem;
+}
+
+ul,
+li {
     list-style: none;
     text-decoration: none;
 }
 
-a:active{
+a:active {
     color: var(--clr-primary-);
 }
 
-a:link, a:visited{
+a:link,
+a:visited {
     color: var(--clr-primary-);
     text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 1.5rem 0rem;
+    font-family: var(--fs-nav-);
+}
+
+nav li {
+    margin: 1rem;
+    display: flex;
+    gap: 15vw;
+    font-size: 1.75rem;
 }
