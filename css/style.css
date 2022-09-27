@@ -1,0 +1,42 @@
+:root{
+    --clr-primary-: #1E1E1E;
+    --clr-secondary-: #F4F4D0;
+
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+}
+
+body{
+    color: var(--clr-primary-);
+    background-color: var(--clr-secondary-);
+}
+
+footer{
+    background-color: var(--clr-primary-);
+    color: var(--clr-secondary-);
+}
+
+ul, li{
+    list-style: none;
+    text-decoration: none;
+}
+
+a:active{
+    color: var(--clr-primary-);
+}
+
+a:link, a:visited{
+    color: var(--clr-primary-);
+    text-decoration: none;
+}
