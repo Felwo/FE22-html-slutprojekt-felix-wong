@@ -3,7 +3,7 @@
 :root {
     --clr-primary-: #1A1E34;
     --clr-secondary-: #F4F4D0;
-    --clr-tertiary-: #F8F8F8;
+    --clr-tertiary-: #666980;
 
     --fs-logo-: 'Fredericka the Great';
     --fs-nav-: 'Gotu', sans-serif;
@@ -17,7 +17,8 @@
     box-sizing: border-box;
 }
 
-* {
+*,
+#bootstrap-overrides {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -53,9 +54,10 @@ h3 {
     font-size: 2rem;
 }
 
-p, figcaption {
+p,
+figcaption {
     font-family: var(--fs-para-);
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 footer {
@@ -97,16 +99,28 @@ a:visited {
 nav {
     display: flex;
     flex-flow: column;
+    align-content: center;
     align-items: center;
-    margin: 1.5rem 0rem;
+    margin: 1.5rem 0 0 0;
     font-family: var(--fs-nav-);
 }
 
+#bootstrap-overrides nav > * {
+    margin: 0 1.5rem;
+}
+
 nav li {
-    margin: 1rem;
+    margin: 1rem 0 0 0;
     display: flex;
-    gap: 15vw;
+    gap: 10vw;
     font-size: 1.75rem;
+}
+
+.navbar {
+    margin-bottom: 0;
+    padding: 0;
+    gap: 0;
+    margin: 0;
 }
 
 main {
@@ -114,17 +128,33 @@ main {
     flex-flow: column nowrap;
     align-items: center;
     margin: 2rem 13%;
+    animation: fade;
+    animation-duration: 1.66s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
 }
 
 .home-main {
     text-align: center;
 }
-.home-main >* , .home-main section>*{
+
+.home-main>*,
+.home-main section>* {
     margin: 1.25rem 0;
 }
+
 .home-main section>* {
     margin: 1.25rem 0 0 0;
 }
+
 .home-main figure {
     background-color: var(--clr-primary-);
     color: var(--clr-secondary-);
@@ -132,22 +162,149 @@ main {
     padding: 0 0 0.75em 0;
 }
 
-figcaption{
+figcaption {
     padding: 0.25rem;
 }
 
-.home-main figure img{
+a figcaption {
+    color: var(--clr-secondary-);
+}
+
+.home-main figure::before {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.home-main figure:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.home-main figure img {
     border-radius: 2rem 2rem 0rem 0rem;
     max-width: 100%;
 }
 
-#me-pic{
+#me-pic {
     border-radius: 50%;
     max-width: 100%;
+    margin: 1.5rem 0 0 0;
 }
 
-.about-info > *{
- margin: 2rem 0;
+.about-info>* {
+    margin: 2rem 0;
 }
 
+.work-main>* {
+    margin-bottom: 1.5rem;
+}
 
+@media screen and (min-width: 750px) {
+    nav {
+        flex-flow: row;
+        justify-content: space-between;
+        margin: 0 2rem;
+    }
+
+    footer {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        min-width: 100vw;
+    }
+
+    footer:last-child {
+        margin-right: 3rem;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 5% 1fr;
+    }
+
+    .home-child1>* {
+        text-align: left;
+    }
+
+    .home-child2 {
+        grid-column: 3 / span 1;
+        grid-row: 1 / span 1;
+    }
+
+    .home-child3,
+    .home-child5 {
+        grid-column: 1 / span 1;
+    }
+
+    .home-child4 {
+        grid-column: 3 / span 1;
+    }
+
+    #me-pic{
+        max-width: 80%;
+    }
+
+    .about-main h1 {
+        grid-column: 3 / span 1;
+    }
+
+    .about-main picture {
+        grid-column: 1 / span 1;
+    }
+
+    .about-info {
+        grid-column: 3 / span 1;
+    }
+
+    .work-main{
+        grid-template-columns: 3fr 5% 2fr ;
+    }
+    .work-slider {
+        grid-column: 1 / span 1;
+    }
+
+    .work-info {
+        grid-column: 3 / span 1;
+    }
+
+    #bootstrap-overrides main {
+        min-height:66vh;
+    }
+}
+
+.intro{
+    background-color: var(--clr-primary-);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    background-color: var(--clr-tertiary-);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+}
+
+.intro-text {
+    color: var(--clr-secondary-);
+}
+
+.hide {
+    background-color: var(--clr-primary-);
+    overflow: hidden;
+}
+
+.hide span {
+    transform: translateY(100%);
+    display: inline-block;
+}
